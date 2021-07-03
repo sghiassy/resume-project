@@ -8,5 +8,10 @@
 import UIKit
 
 class BeerViewController:UIViewController {
-    
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.view.backgroundColor = .green
+    }
+
 }

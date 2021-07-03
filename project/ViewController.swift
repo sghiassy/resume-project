@@ -32,6 +32,8 @@ class ViewController: UIViewController {
 
     @objc func didTap() {
         print("Button was tapped")
+        let beersViewController = BeerViewController()
+        self.navigationController?.pushViewController(beersViewController, animated: true)
     }
 
 }
