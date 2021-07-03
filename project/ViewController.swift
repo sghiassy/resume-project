@@ -12,7 +12,26 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .lightGray
-        // Do any additional setup after loading the view.
+
+
+        buildButton()
+    }
+
+    func buildButton() {
+        let button = UIButton()
+        button.setTitle("Beers", for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+
+        button.layer.borderColor = UIColor.red.cgColor
+        button.layer.borderWidth = 1.0
+        button.frame = self.view.frame
+        self.view.addSubview(button)
+
+        button.addTarget(self, action: #selector(didTap), for: .touchUpInside)
+    }
+
+    @objc func didTap() {
+        print("Button was tapped")
     }
 
 }
