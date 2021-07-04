@@ -9,8 +9,6 @@ import UIKit
 
 class BeerViewController:UIViewController,UICollectionViewDelegate,UICollectionViewDataSource {
 
-    var ctr = 0
-
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .green
@@ -24,23 +22,29 @@ class BeerViewController:UIViewController,UICollectionViewDelegate,UICollectionV
         collectionView.dataSource = self
         self.view.addSubview(collectionView)
         collectionView.backgroundColor = .white
+
+        NSLayoutConstraint.activate([
+            collectionView.widthAnchor.constraint(equalTo: self.view.widthAnchor),
+            collectionView.heightAnchor.constraint(equalTo: self.view.heightAnchor)
+        ])
     }
 
     // MARK - UICollectionViewDataSource Methods
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return 100
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MyCell", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MyCell", for: indexPath) as! BeerCollectionViewCell
+        let ctr = indexPath.row
         cell.backgroundColor = ctr&1 == 1 ? .red : .blue
-        ctr += 1
+        cell.textLabel.text = "\(ctr)"
         return cell
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-           print("User tapped on item \(indexPath.row)")
-        }
+       print("User tapped on item \(indexPath.row)")
+    }
 
 }
