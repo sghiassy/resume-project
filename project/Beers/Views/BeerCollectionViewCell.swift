@@ -20,7 +20,6 @@ class BeerCollectionViewCell: UICollectionViewCell {
         textLabel = UILabel(frame: .zero)
         super.init(frame: frame)
 
-
         textLabel.translatesAutoresizingMaskIntoConstraints = false
         self.contentView.addSubview(textLabel)
         NSLayoutConstraint.activate([
