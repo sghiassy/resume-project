@@ -9,6 +9,26 @@ import UIKit
 
 class BeerViewController:UIViewController,UICollectionViewDelegate,UICollectionViewDataSource {
 
+    init() {
+        super.init(nibName: nil, bundle: nil)
+        self.fetchJSON()
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    func fetchJSON() {
+        guard let url = URL(string: "http://localhost:3000/json/beers.json") else { return }
+        URLSession.shared.dataTask(with: url) { data, response, error in
+          if let data = data {
+             if let jsonString = String(data: data, encoding: .utf8) {
+                print(jsonString)
+             }
+           }
+        }.resume()
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .green
