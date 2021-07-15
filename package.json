@@ -1,11 +1,11 @@
 {
   "name": "resume-project",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
+  "repository": "git@github.com:sghiassy/resume-project.git",
+  "author": "Shaheen Ghiassy <shaheen@groupon.com>",
+  "license": "MIT",
   "scripts": {
-	  "x": "open project.xcworkspace"
-  },
-  "author": "",
-  "license": "ISC"
+    "x": "open ./iOS/app/project.xcworkspace"
+  }
 }
