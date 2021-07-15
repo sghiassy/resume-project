@@ -40,11 +40,9 @@ class BeerCollectionViewCell:UICollectionViewCell {
         title.text = model.title
         self.backgroundColor = backgroundColor
         if let url = URL(string: model.imageURL) {
-            API.Fetch.data(url) { data in
-                DispatchQueue.main.async { [weak self] in
-                    kdebug_signpost_start(10, 0, 0, 0, 0)
-                    self?.imageView.image = UIImage(data: data)
-                    kdebug_signpost_end(10, 0, 0, 0, 0)
+            API.Fetch.image(url) { [weak self] image in
+                DispatchQueue.main.async {
+                    self?.imageView.image = image
                 }
             }
         }
