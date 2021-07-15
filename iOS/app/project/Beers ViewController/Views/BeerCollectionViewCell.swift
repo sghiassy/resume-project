@@ -9,25 +9,46 @@ import UIKit
 
 class BeerCollectionViewCell:UICollectionViewCell {
 
-    var textLabel:UILabel
+    let title:UILabel
+    let imageView:UIImageView
 
     override init(frame:CGRect) {
-        textLabel = UILabel(frame: .zero)
+        title = UILabel(frame: .zero)
+        title.textAlignment = .center
+        title.setContentHuggingPriority(.defaultHigh, for: .vertical)
+        imageView = UIImageView(frame: .zero)
+        imageView.layer.borderColor = UIColor.red.cgColor
+        imageView.layer.borderWidth = 1.0
+        imageView.contentMode = .scaleAspectFit
+
+        let stackView = UIStackView(arrangedSubviews: [imageView, title])
+        stackView.axis = .vertical
         super.init(frame: frame)
 
-        textLabel.translatesAutoresizingMaskIntoConstraints = false
-        self.contentView.addSubview(textLabel)
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.addSubview(stackView)
         NSLayoutConstraint.activate([
-            self.contentView.centerXAnchor.constraint(equalTo: textLabel.centerXAnchor),
-            self.contentView.centerYAnchor.constraint(equalTo: textLabel.centerYAnchor),
+            stackView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            stackView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            stackView.widthAnchor.constraint(equalTo: contentView.widthAnchor),
+            stackView.heightAnchor.constraint(equalTo: contentView.heightAnchor),
         ])
     }
 
     func provide(_ model:BeerCollectionViewCell.ViewModel, backgroundColor:UIColor) {
-        textLabel.text = model.title
+        title.text = model.title
         self.backgroundColor = backgroundColor
+        if let url = URL(string: model.imageURL) {
+            API.fetch(url) { data in
+                DispatchQueue.main.async { [weak self] in
+                    kdebug_signpost_start(10, 0, 0, 0, 0)
+                    self?.imageView.image = UIImage(data: data)
+                    kdebug_signpost_end(10, 0, 0, 0, 0)
+                }
+            }
+        }
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

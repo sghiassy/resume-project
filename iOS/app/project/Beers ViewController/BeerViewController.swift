@@ -14,6 +14,21 @@ class BeerViewController:UIViewController,UICollectionViewDelegate,UICollectionV
 
     init() {
         super.init(nibName: nil, bundle: nil)
+        let layout = UICollectionViewFlowLayout()
+        layout.itemSize = CGSize(width: self.view.frame.size.width, height: 200)
+        collectionView = UICollectionView(frame: self.view.frame, collectionViewLayout:layout )
+        collectionView.register(BeerCollectionViewCell.self, forCellWithReuseIdentifier: "MyCell")
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        self.view.addSubview(collectionView)
+        collectionView.backgroundColor = .white
+
+        NSLayoutConstraint.activate([
+            collectionView.widthAnchor.constraint(equalTo: self.view.widthAnchor),
+            collectionView.heightAnchor.constraint(equalTo: self.view.heightAnchor),
+            collectionView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            collectionView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor),
+        ])
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -37,21 +52,6 @@ class BeerViewController:UIViewController,UICollectionViewDelegate,UICollectionV
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .green
-
-        let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: self.view.frame.size.width, height: 200)
-        collectionView = UICollectionView(frame: self.view.frame, collectionViewLayout:layout )
-        collectionView.register(BeerCollectionViewCell.self, forCellWithReuseIdentifier: "MyCell")
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        self.view.addSubview(collectionView)
-        collectionView.backgroundColor = .white
-
-        NSLayoutConstraint.activate([
-            collectionView.widthAnchor.constraint(equalTo: self.view.widthAnchor),
-            collectionView.heightAnchor.constraint(equalTo: self.view.heightAnchor)
-        ])
 
         // Push fetching JSON to next run-loop, so that we don't interrupt the UI from loading
         DispatchQueue.main.async {

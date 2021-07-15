@@ -6,6 +6,7 @@
   "author": "Shaheen Ghiassy <shaheen@groupon.com>",
   "license": "MIT",
   "scripts": {
+		"api":"cd api; yarn start",
     "x": "open ./iOS/app/project.xcworkspace"
   }
 }

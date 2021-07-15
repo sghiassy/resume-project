@@ -2,7 +2,7 @@
     {
         "title":"Coors Light",
         "brand":"Coors",
-        "imageURL":"",
+        "imageURL":"http://localhost:3000/images/coorslight.png",
         "rating": {
             "rating":5,
             "outOf":5
@@ -11,7 +11,7 @@
     {
         "title":"Coors Light2",
         "brand":"Coors",
-        "imageURL":"",
+        "imageURL":"http://localhost:3000/images/coorslight2.png",
         "rating": {
             "rating":5,
             "outOf":5
@@ -20,7 +20,7 @@
     {
         "title":"Coors Light3",
         "brand":"Coors",
-        "imageURL":"",
+        "imageURL":"http://localhost:3000/images/coorslight3.png",
         "rating": {
             "rating":5,
             "outOf":5
@@ -29,7 +29,7 @@
     {
         "title":"Coors Light4",
         "brand":"Coors",
-        "imageURL":"",
+        "imageURL":"http://localhost:3000/images/coorslight4.png",
         "rating": {
             "rating":5,
             "outOf":5
@@ -38,7 +38,7 @@
     {
         "title":"Coors Light5",
         "brand":"Coors",
-        "imageURL":"",
+        "imageURL":"http://localhost:3000/images/coorslight5.png",
         "rating": {
             "rating":5,
             "outOf":5
