@@ -20,13 +20,9 @@ class BeerViewController:UIViewController,UICollectionViewDelegate,UICollectionV
 
     func fetchJSON() {
         guard let url = URL(string: "http://localhost:3000/json/beers.json") else { return }
-        URLSession.shared.dataTask(with: url) { data, response, error in
-          if let data = data {
-             if let jsonString = String(data: data, encoding: .utf8) {
-                print(jsonString)
-             }
-           }
-        }.resume()
+        API.fetch(url) { response in
+
+        }
     }
 
     override func viewDidLoad() {
