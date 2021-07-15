@@ -1,0 +1,47 @@
+[
+    {
+        "title":"Coors Light",
+        "brand":"Coors",
+        "imageURL":"",
+        "rating": {
+            "rating":5,
+            "outOf":5
+        }
+    },
+    {
+        "title":"Coors Light2",
+        "brand":"Coors",
+        "imageURL":"",
+        "rating": {
+            "rating":5,
+            "outOf":5
+        }
+    },
+    {
+        "title":"Coors Light3",
+        "brand":"Coors",
+        "imageURL":"",
+        "rating": {
+            "rating":5,
+            "outOf":5
+        }
+    },
+    {
+        "title":"Coors Light4",
+        "brand":"Coors",
+        "imageURL":"",
+        "rating": {
+            "rating":5,
+            "outOf":5
+        }
+    },
+    {
+        "title":"Coors Light5",
+        "brand":"Coors",
+        "imageURL":"",
+        "rating": {
+            "rating":5,
+            "outOf":5
+        }
+    }
+]

@@ -9,9 +9,11 @@
 /* Begin PBXBuildFile section */
 		50D21DC4E0F51EE6C0F50920 /* Pods_project_projectUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FB843F6ADAB345BA13CCB8A /* Pods_project_projectUITests.framework */; };
 		89ADA95729F76E5F6C5D76A4 /* Pods_projectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E452DEF0A0DD480889FBC0E6 /* Pods_projectTests.framework */; };
+		AA43F62A26A0ABFD008A5295 /* JSONFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA43F62926A0ABFD008A5295 /* JSONFetcher.swift */; };
+		AA43F62C26A0B278008A5295 /* BeerCollectionViewCell.ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA43F62B26A0B278008A5295 /* BeerCollectionViewCell.ViewModel.swift */; };
 		AA45FBAF26912E6100BB0D7B /* BeerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA45FBAE26912E6100BB0D7B /* BeerCollectionViewCell.swift */; };
 		AAA8A8DF26911BBC00515752 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA8A8DE26911BBC00515752 /* AppDelegate.swift */; };
-		AAA8A8E326911BBC00515752 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA8A8E226911BBC00515752 /* ViewController.swift */; };
+		AAA8A8E326911BBC00515752 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA8A8E226911BBC00515752 /* HomeViewController.swift */; };
 		AAA8A8E826911BBC00515752 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAA8A8E726911BBC00515752 /* Assets.xcassets */; };
 		AAA8A8EB26911BBC00515752 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAA8A8E926911BBC00515752 /* LaunchScreen.storyboard */; };
 		AAA8A8F626911BBD00515752 /* projectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA8A8F526911BBD00515752 /* projectTests.swift */; };
@@ -43,10 +45,12 @@
 		2F5A88E39A5D639DEB4223E5 /* Pods_project.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_project.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		460C64170194586B9D09141A /* Pods-project-projectUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-project-projectUITests.debug.xcconfig"; path = "Target Support Files/Pods-project-projectUITests/Pods-project-projectUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		9FB843F6ADAB345BA13CCB8A /* Pods_project_projectUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_project_projectUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA43F62926A0ABFD008A5295 /* JSONFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONFetcher.swift; sourceTree = "<group>"; };
+		AA43F62B26A0B278008A5295 /* BeerCollectionViewCell.ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerCollectionViewCell.ViewModel.swift; sourceTree = "<group>"; };
 		AA45FBAE26912E6100BB0D7B /* BeerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerCollectionViewCell.swift; sourceTree = "<group>"; };
 		AAA8A8DB26911BBC00515752 /* project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = project.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAA8A8DE26911BBC00515752 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		AAA8A8E226911BBC00515752 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		AAA8A8E226911BBC00515752 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		AAA8A8E726911BBC00515752 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AAA8A8EA26911BBC00515752 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AAA8A8EC26911BBC00515752 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -101,21 +105,39 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		AA45FBAD26912C5E00BB0D7B /* Beers */ = {
+		AA45FBAD26912C5E00BB0D7B /* Beers ViewController */ = {
 			isa = PBXGroup;
 			children = (
 				AAA8E532269121A0003BFD9B /* BeerViewController.swift */,
 				AA45FBB026912ED700BB0D7B /* Views */,
 			);
-			path = Beers;
+			path = "Beers ViewController";
 			sourceTree = "<group>";
 		};
 		AA45FBB026912ED700BB0D7B /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				AA45FBAE26912E6100BB0D7B /* BeerCollectionViewCell.swift */,
+				AA43F62B26A0B278008A5295 /* BeerCollectionViewCell.ViewModel.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		AA6B297F26A0B872008EA08C /* System */ = {
+			isa = PBXGroup;
+			children = (
+				AA43F62926A0ABFD008A5295 /* JSONFetcher.swift */,
+			);
+			path = System;
+			sourceTree = "<group>";
+		};
+		AA6B298126A0B9E0008EA08C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				AAA8A8E726911BBC00515752 /* Assets.xcassets */,
+				AAA8A8E926911BBC00515752 /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		AAA8A8D226911BBC00515752 = {
@@ -144,10 +166,10 @@
 			isa = PBXGroup;
 			children = (
 				AAA8A8DE26911BBC00515752 /* AppDelegate.swift */,
-				AAA8A8E226911BBC00515752 /* ViewController.swift */,
-				AA45FBAD26912C5E00BB0D7B /* Beers */,
-				AAA8A8E726911BBC00515752 /* Assets.xcassets */,
-				AAA8A8E926911BBC00515752 /* LaunchScreen.storyboard */,
+				AAA8A8E226911BBC00515752 /* HomeViewController.swift */,
+				AA45FBAD26912C5E00BB0D7B /* Beers ViewController */,
+				AA6B297F26A0B872008EA08C /* System */,
+				AA6B298126A0B9E0008EA08C /* Resources */,
 				AAA8A8EC26911BBC00515752 /* Info.plist */,
 			);
 			path = project;
@@ -385,9 +407,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA43F62C26A0B278008A5295 /* BeerCollectionViewCell.ViewModel.swift in Sources */,
 				AA45FBAF26912E6100BB0D7B /* BeerCollectionViewCell.swift in Sources */,
 				AAA8E533269121A0003BFD9B /* BeerViewController.swift in Sources */,
-				AAA8A8E326911BBC00515752 /* ViewController.swift in Sources */,
+				AA43F62A26A0ABFD008A5295 /* JSONFetcher.swift in Sources */,
+				AAA8A8E326911BBC00515752 /* HomeViewController.swift in Sources */,
 				AAA8A8DF26911BBC00515752 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,12 +7,11 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .lightGray
-
 
         buildButton()
     }
@@ -20,14 +19,16 @@ class ViewController: UIViewController {
     func buildButton() {
         let button = UIButton()
         button.setTitle("Beers", for: .normal)
+        self.view.addSubview(button)
         button.translatesAutoresizingMaskIntoConstraints = false
 
-        button.layer.borderColor = UIColor.red.cgColor
-        button.layer.borderWidth = 1.0
-        button.frame = self.view.frame
-        self.view.addSubview(button)
-
         button.addTarget(self, action: #selector(didTap), for: .touchUpInside)
+        NSLayoutConstraint.activate([
+            button.widthAnchor.constraint(equalTo: self.view.widthAnchor),
+            button.heightAnchor.constraint(equalTo: self.view.heightAnchor),
+            button.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            button.centerYAnchor.constraint(equalTo: self.view.centerYAnchor),
+        ])
     }
 
     @objc func didTap() {

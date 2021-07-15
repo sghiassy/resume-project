@@ -14,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var childAppDelegate: UIApplicationDelegate? = nil
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        let vc = ViewController()
+        let vc = HomeViewController()
         let nav = UINavigationController(rootViewController: vc)
         setupWindow(navigationController: nav)
         return self.childAppDelegate?.application?(application, didFinishLaunchingWithOptions: launchOptions) ?? false
@@ -22,11 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func setupWindow(navigationController:UINavigationController) {
         self.window = UIWindow(frame: UIScreen.main.bounds)
-
-
-        navigationController.isNavigationBarHidden = true
         self.window?.rootViewController = navigationController
-
         self.window?.makeKeyAndVisible()
     }
 
