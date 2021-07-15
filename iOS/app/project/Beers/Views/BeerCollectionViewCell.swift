@@ -7,12 +7,7 @@
 
 import UIKit
 
-class BeerCollectionViewCell: UICollectionViewCell {
-
-    struct ViewModel {
-        let title:String
-        let backgroundColor:UIColor
-    }
+class BeerCollectionViewCell:UICollectionViewCell {
 
     var textLabel:UILabel
 
@@ -28,9 +23,9 @@ class BeerCollectionViewCell: UICollectionViewCell {
         ])
     }
 
-    func provide(_ model:ViewModel) {
+    func provide(_ model:BeerCollectionViewCell.ViewModel, backgroundColor:UIColor) {
         textLabel.text = model.title
-        self.backgroundColor = model.backgroundColor
+        self.backgroundColor = backgroundColor
     }
     
     required init?(coder: NSCoder) {

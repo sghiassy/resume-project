@@ -8,14 +8,12 @@
 import Foundation
 
 class API {
-    static func fetch(_ url:URL, onComplete:@escaping (String)->()) {
+    static func fetch(_ url:URL, onComplete:@escaping (Data)->()) {
         URLSession.shared.dataTask(with: url) { data, response, error in
-          if let data = data {
-             if let jsonString = String(data: data, encoding: .utf8) {
-    //            print(jsonString)
-                onComplete(jsonString)
-             }
-           }
+            if let data = data {
+                onComplete(data)
+            }
         }.resume()
     }
 }
+

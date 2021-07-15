@@ -22,11 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func setupWindow(navigationController:UINavigationController) {
         self.window = UIWindow(frame: UIScreen.main.bounds)
-
-
-        navigationController.isNavigationBarHidden = true
         self.window?.rootViewController = navigationController
-
         self.window?.makeKeyAndVisible()
     }
 
