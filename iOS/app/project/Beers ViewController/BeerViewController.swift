@@ -14,7 +14,6 @@ class BeerViewController:UIViewController,UICollectionViewDelegate,UICollectionV
 
     init() {
         super.init(nibName: nil, bundle: nil)
-        self.fetchJSON()
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -53,6 +52,11 @@ class BeerViewController:UIViewController,UICollectionViewDelegate,UICollectionV
             collectionView.widthAnchor.constraint(equalTo: self.view.widthAnchor),
             collectionView.heightAnchor.constraint(equalTo: self.view.heightAnchor)
         ])
+
+        // Push fetching JSON to next run-loop, so that we don't interrupt the UI from loading
+        DispatchQueue.main.async {
+            self.fetchJSON()
+        }
     }
 
     // MARK - UICollectionViewDataSource Methods
