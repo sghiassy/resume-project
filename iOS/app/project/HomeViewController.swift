@@ -11,7 +11,7 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .lightGray
+        view.backgroundColor = .lightGray
 
         buildButton()
     }
@@ -19,15 +19,14 @@ class HomeViewController: UIViewController {
     func buildButton() {
         let button = UIButton()
         button.setTitle("Beers", for: .normal)
-        self.view.addSubview(button)
-        button.translatesAutoresizingMaskIntoConstraints = false
-
         button.addTarget(self, action: #selector(didTap), for: .touchUpInside)
+        view.addSubview(button)
+        button.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             button.widthAnchor.constraint(equalTo: self.view.widthAnchor),
             button.heightAnchor.constraint(equalTo: self.view.heightAnchor),
             button.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-            button.centerYAnchor.constraint(equalTo: self.view.centerYAnchor),
+            button.centerYAnchor.constraint(equalTo: self.view.centerYAnchor)
         ])
     }
 

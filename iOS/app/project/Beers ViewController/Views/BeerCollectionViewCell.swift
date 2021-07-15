@@ -14,6 +14,7 @@ class BeerCollectionViewCell:UICollectionViewCell {
 
     override init(frame:CGRect) {
         title = UILabel(frame: .zero)
+        title.textColor = .white
         title.textAlignment = .center
         title.setContentHuggingPriority(.defaultHigh, for: .vertical)
         imageView = UIImageView(frame: .zero)
@@ -39,7 +40,7 @@ class BeerCollectionViewCell:UICollectionViewCell {
         title.text = model.title
         self.backgroundColor = backgroundColor
         if let url = URL(string: model.imageURL) {
-            API.fetch(url) { data in
+            API.Fetch.data(url) { data in
                 DispatchQueue.main.async { [weak self] in
                     kdebug_signpost_start(10, 0, 0, 0, 0)
                     self?.imageView.image = UIImage(data: data)

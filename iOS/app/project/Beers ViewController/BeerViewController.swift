@@ -37,15 +37,10 @@ class BeerViewController:UIViewController,UICollectionViewDelegate,UICollectionV
 
     func fetchJSON() {
         guard let url = URL(string: "http://localhost:3000/json/beers.json") else { return }
-        API.fetch(url) { [weak self] data in
-            do {
-                let res = try JSONDecoder().decode([BeerCollectionViewCell.ViewModel].self, from: data)
-                DispatchQueue.main.async {
-                    self?.data = res
-                    self?.collectionView.reloadData()
-                }
-            } catch let error {
-                print(error)
+        API.Fetch.model(url, type:[BeerCollectionViewCell.ViewModel].self) { [weak self] res in
+            DispatchQueue.main.async {
+                self?.data = res
+                self?.collectionView.reloadData()
             }
         }
     }
