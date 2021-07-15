@@ -9,6 +9,11 @@ import UIKit
 
 class BeerCollectionViewCell: UICollectionViewCell {
 
+    struct ViewModel {
+        let title:String
+        let backgroundColor:UIColor
+    }
+
     var textLabel:UILabel
 
     override init(frame:CGRect) {
@@ -22,6 +27,11 @@ class BeerCollectionViewCell: UICollectionViewCell {
             self.contentView.centerXAnchor.constraint(equalTo: textLabel.centerXAnchor),
             self.contentView.centerYAnchor.constraint(equalTo: textLabel.centerYAnchor),
         ])
+    }
+
+    func provide(_ model:ViewModel) {
+        textLabel.text = model.title
+        self.backgroundColor = model.backgroundColor
     }
     
     required init?(coder: NSCoder) {
