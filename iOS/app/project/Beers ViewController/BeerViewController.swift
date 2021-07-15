@@ -48,7 +48,7 @@ class BeerViewController:UIViewController,UICollectionViewDelegate,UICollectionV
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Push fetching JSON to next run-loop, so that we don't interrupt the UI from loading
+        // Push fetching JSON to next run-loop, so that we give the UI more time to load
         DispatchQueue.main.async {
             self.fetchJSON()
         }

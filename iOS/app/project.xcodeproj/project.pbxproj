@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		50D21DC4E0F51EE6C0F50920 /* Pods_project_projectUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FB843F6ADAB345BA13CCB8A /* Pods_project_projectUITests.framework */; };
 		89ADA95729F76E5F6C5D76A4 /* Pods_projectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E452DEF0A0DD480889FBC0E6 /* Pods_projectTests.framework */; };
-		AA43F62A26A0ABFD008A5295 /* JSONFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA43F62926A0ABFD008A5295 /* JSONFetcher.swift */; };
+		AA43F62A26A0ABFD008A5295 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA43F62926A0ABFD008A5295 /* API.swift */; };
 		AA43F62C26A0B278008A5295 /* BeerCollectionViewCell.ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA43F62B26A0B278008A5295 /* BeerCollectionViewCell.ViewModel.swift */; };
 		AA45FBAF26912E6100BB0D7B /* BeerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA45FBAE26912E6100BB0D7B /* BeerCollectionViewCell.swift */; };
 		AAA8A8DF26911BBC00515752 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA8A8DE26911BBC00515752 /* AppDelegate.swift */; };
@@ -45,7 +45,7 @@
 		2F5A88E39A5D639DEB4223E5 /* Pods_project.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_project.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		460C64170194586B9D09141A /* Pods-project-projectUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-project-projectUITests.debug.xcconfig"; path = "Target Support Files/Pods-project-projectUITests/Pods-project-projectUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		9FB843F6ADAB345BA13CCB8A /* Pods_project_projectUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_project_projectUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		AA43F62926A0ABFD008A5295 /* JSONFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONFetcher.swift; sourceTree = "<group>"; };
+		AA43F62926A0ABFD008A5295 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		AA43F62B26A0B278008A5295 /* BeerCollectionViewCell.ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerCollectionViewCell.ViewModel.swift; sourceTree = "<group>"; };
 		AA45FBAE26912E6100BB0D7B /* BeerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerCollectionViewCell.swift; sourceTree = "<group>"; };
 		AAA8A8DB26911BBC00515752 /* project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = project.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -126,7 +126,7 @@
 		AA6B297F26A0B872008EA08C /* System */ = {
 			isa = PBXGroup;
 			children = (
-				AA43F62926A0ABFD008A5295 /* JSONFetcher.swift */,
+				AA43F62926A0ABFD008A5295 /* API.swift */,
 			);
 			path = System;
 			sourceTree = "<group>";
@@ -410,7 +410,7 @@
 				AA43F62C26A0B278008A5295 /* BeerCollectionViewCell.ViewModel.swift in Sources */,
 				AA45FBAF26912E6100BB0D7B /* BeerCollectionViewCell.swift in Sources */,
 				AAA8E533269121A0003BFD9B /* BeerViewController.swift in Sources */,
-				AA43F62A26A0ABFD008A5295 /* JSONFetcher.swift in Sources */,
+				AA43F62A26A0ABFD008A5295 /* API.swift in Sources */,
 				AAA8A8E326911BBC00515752 /* HomeViewController.swift in Sources */,
 				AAA8A8DF26911BBC00515752 /* AppDelegate.swift in Sources */,
 			);
