@@ -16,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         let vc = HomeViewController()
         let nav = UINavigationController(rootViewController: vc)
+        nav.isNavigationBarHidden = true
         setupWindow(navigationController: nav)
         return self.childAppDelegate?.application?(application, didFinishLaunchingWithOptions: launchOptions) ?? false
     }

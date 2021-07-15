@@ -9,31 +9,50 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
+    let scrollView = UIScrollView()
+
+    init() {
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .lightGray
-
-        buildButton()
-    }
-
-    func buildButton() {
-        let button = UIButton()
-        button.setTitle("Beers", for: .normal)
-        button.addTarget(self, action: #selector(didTap), for: .touchUpInside)
-        view.addSubview(button)
-        button.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(scrollView)
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.backgroundColor = .black
+        scrollView.isPagingEnabled = true
+        scrollView.contentSize = CGSize(width: self.view.frame.size.width*2, height: self.view.frame.size.height-100)
         NSLayoutConstraint.activate([
-            button.widthAnchor.constraint(equalTo: self.view.widthAnchor),
-            button.heightAnchor.constraint(equalTo: self.view.heightAnchor),
-            button.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-            button.centerYAnchor.constraint(equalTo: self.view.centerYAnchor)
+            scrollView.widthAnchor.constraint(equalTo: self.view.widthAnchor),
+            scrollView.heightAnchor.constraint(equalTo: self.view.heightAnchor),
+            scrollView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            scrollView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor)
         ])
+
+        let vc1 = BeerViewController()
+        vc1.view.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.addSubview(vc1.view)
+        addChild(vc1)
+        vc1.didMove(toParent: self)
+
+        let vc2 = BeerViewController()
+        vc2.view.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.addSubview(vc2.view)
+        addChild(vc2)
+        vc2.didMove(toParent: self)
+
+        let views:[String:UIView] = ["view":view, "vc1":vc1.view, "vc2":vc2.view]
+        let verticalConstraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|[vc1(==view)]", options: [], metrics: nil, views: views)
+        let horizontalConstraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|[vc1(==view)][vc2(==view)]|", options: [.alignAllTop, .alignAllBottom], metrics: nil, views: views)
+        NSLayoutConstraint.activate(verticalConstraints + horizontalConstraints)
     }
 
-    @objc func didTap() {
-        print("Button was tapped")
-        let beersViewController = BeerViewController()
-        self.navigationController?.pushViewController(beersViewController, animated: true)
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
 
 }

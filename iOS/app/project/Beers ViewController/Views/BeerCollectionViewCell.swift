@@ -18,8 +18,6 @@ class BeerCollectionViewCell:UICollectionViewCell {
         title.textAlignment = .center
         title.setContentHuggingPriority(.defaultHigh, for: .vertical)
         imageView = UIImageView(frame: .zero)
-        imageView.layer.borderColor = UIColor.red.cgColor
-        imageView.layer.borderWidth = 1.0
         imageView.contentMode = .scaleAspectFit
 
         let stackView = UIStackView(arrangedSubviews: [imageView, title])
