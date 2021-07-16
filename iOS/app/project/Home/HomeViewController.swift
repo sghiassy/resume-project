@@ -26,14 +26,16 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
         scrollView.backgroundColor = .black
         scrollView.isPagingEnabled = true
         scrollView.delegate = self
+        scrollView.showsHorizontalScrollIndicator = false
 
         let pageControlView = PageControlView()
         self.view.addSubview(pageControlView)
         pageControlView.translatesAutoresizingMaskIntoConstraints = false
-        pageControlView.onTinderButtonPressed = { [weak self] in
-            guard let self = self else { return }
-            print("tinderButtonTapped")
-            self.scrollView.scrollTo(horizontalPage: 2, animated: true)
+        pageControlView.onTinderButtonPressed = { [unowned self] in
+            self.scrollView.scrollTo(horizontalPage: 1, animated: true)
+        }
+        pageControlView.onBeersButtonPressed = { [unowned self] in
+            self.scrollView.scrollTo(horizontalPage: 0, animated: true)
         }
 
         let vc1 = BeerViewController()

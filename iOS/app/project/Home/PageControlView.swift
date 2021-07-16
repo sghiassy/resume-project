@@ -11,7 +11,10 @@ import UIKit
 
 class PageControlView: UIStackView {
 
-    var onTinderButtonPressed:(()->())? = nil
+    private let beersButton = UIButton()
+    private let tinderButton = UIButton()
+    public var onTinderButtonPressed:(()->())? = nil
+    public var onBeersButtonPressed:(()->())? = nil
 
     init() {
         super.init(frame: .zero)
@@ -19,13 +22,13 @@ class PageControlView: UIStackView {
         self.distribution = .fillProportionally
         self.spacing = 5
 
-        let beersButton = UIButton()
         beersButton.setTitle("Beers", for: .normal)
+        beersButton.backgroundColor = .blue
         beersButton.addTarget(self, action: #selector(beersButtonTapped), for: .touchUpInside)
         beersButton.titleLabel?.font = UIFont.systemFont(ofSize: 12)
 
-        let tinderButton = UIButton()
         tinderButton.setTitle("Tinder", for: .normal)
+        tinderButton.backgroundColor = .black
         tinderButton.addTarget(self, action: #selector(tinderButtonTapped), for: .touchUpInside)
         tinderButton.titleLabel?.font = UIFont.systemFont(ofSize: 12)
 
@@ -39,10 +42,14 @@ class PageControlView: UIStackView {
     }
 
     @objc func beersButtonTapped() {
-        print("beersButtonTapped")
+        beersButton.backgroundColor = .blue
+        tinderButton.backgroundColor = .black
+        onBeersButtonPressed?()
     }
 
     @objc func tinderButtonTapped() {
+        beersButton.backgroundColor = .black
+        tinderButton.backgroundColor = .blue
         onTinderButtonPressed?()
     }
 
