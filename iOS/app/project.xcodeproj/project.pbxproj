@@ -14,6 +14,7 @@
 		AA45FBAF26912E6100BB0D7B /* BeerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA45FBAE26912E6100BB0D7B /* BeerCollectionViewCell.swift */; };
 		AA6B298326A11258008EA08C /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6B298226A11258008EA08C /* Int+Extension.swift */; };
 		AA6B298626A11ED1008EA08C /* PageControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6B298526A11ED1008EA08C /* PageControlView.swift */; };
+		AA6B298A26A13317008EA08C /* UIScrollView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6B298926A13317008EA08C /* UIScrollView+Extension.swift */; };
 		AAA8A8DF26911BBC00515752 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA8A8DE26911BBC00515752 /* AppDelegate.swift */; };
 		AAA8A8E326911BBC00515752 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA8A8E226911BBC00515752 /* HomeViewController.swift */; };
 		AAA8A8E826911BBC00515752 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAA8A8E726911BBC00515752 /* Assets.xcassets */; };
@@ -52,6 +53,7 @@
 		AA45FBAE26912E6100BB0D7B /* BeerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerCollectionViewCell.swift; sourceTree = "<group>"; };
 		AA6B298226A11258008EA08C /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
 		AA6B298526A11ED1008EA08C /* PageControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageControlView.swift; sourceTree = "<group>"; };
+		AA6B298926A13317008EA08C /* UIScrollView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Extension.swift"; sourceTree = "<group>"; };
 		AAA8A8DB26911BBC00515752 /* project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = project.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAA8A8DE26911BBC00515752 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AAA8A8E226911BBC00515752 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 			children = (
 				AA43F62926A0ABFD008A5295 /* API.swift */,
 				AA6B298226A11258008EA08C /* Int+Extension.swift */,
+				AA6B298926A13317008EA08C /* UIScrollView+Extension.swift */,
 			);
 			path = System;
 			sourceTree = "<group>";
@@ -425,6 +428,7 @@
 				AA6B298626A11ED1008EA08C /* PageControlView.swift in Sources */,
 				AA45FBAF26912E6100BB0D7B /* BeerCollectionViewCell.swift in Sources */,
 				AAA8E533269121A0003BFD9B /* BeerViewController.swift in Sources */,
+				AA6B298A26A13317008EA08C /* UIScrollView+Extension.swift in Sources */,
 				AA6B298326A11258008EA08C /* Int+Extension.swift in Sources */,
 				AA43F62A26A0ABFD008A5295 /* API.swift in Sources */,
 				AAA8A8E326911BBC00515752 /* HomeViewController.swift in Sources */,

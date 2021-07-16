@@ -26,17 +26,15 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
         scrollView.backgroundColor = .black
         scrollView.isPagingEnabled = true
         scrollView.delegate = self
-//        scrollView.contentSize = CGSize(width: self.view.frame.size.width*2, height: self.view.frame.size.height-100)
-        NSLayoutConstraint.activate([
-            scrollView.widthAnchor.constraint(equalTo: self.view.widthAnchor),
-            scrollView.heightAnchor.constraint(equalTo: self.view.heightAnchor),
-            scrollView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-            scrollView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor)
-        ])
 
         let pageControlView = PageControlView()
         self.view.addSubview(pageControlView)
         pageControlView.translatesAutoresizingMaskIntoConstraints = false
+        pageControlView.onTinderButtonPressed = { [weak self] in
+            guard let self = self else { return }
+            print("tinderButtonTapped")
+            self.scrollView.scrollTo(horizontalPage: 2, animated: true)
+        }
 
         let vc1 = BeerViewController()
         vc1.view.translatesAutoresizingMaskIntoConstraints = false
@@ -50,10 +48,12 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
         addChild(vc2)
         vc2.didMove(toParent: self)
 
-        let views:[String:UIView] = ["page":pageControlView, "view":view, "vc1":vc1.view, "vc2":vc2.view]
-        let verticalConstraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-[page][vc1(==view)]", options: [], metrics: nil, views: views)
-        let horizontalConstraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|[vc1(==view)][vc2(==view)]|", options: [.alignAllTop, .alignAllBottom], metrics: nil, views: views)
-        NSLayoutConstraint.activate(verticalConstraints + horizontalConstraints)
+        let views:[String:UIView] = ["scrollView":scrollView, "page":pageControlView, "view":view, "vc1":vc1.view, "vc2":vc2.view]
+        let topLevelVerticalConstraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-[page][scrollView]|", options: [], metrics: nil, views: views)
+        let pageControlWidth = NSLayoutConstraint.constraints(withVisualFormat: "H:|[page(==view)]|", options: [], metrics: nil, views: views)
+        let scrollViewWidth = NSLayoutConstraint.constraints(withVisualFormat: "H:|[scrollView(==view)]|", options: [], metrics: nil, views: views)
+        let horizontalConstraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|[vc1(==scrollView)][vc2(==scrollView)]|", options: [.alignAllTop, .alignAllBottom], metrics: nil, views: views)
+        NSLayoutConstraint.activate(pageControlWidth + scrollViewWidth + topLevelVerticalConstraints + horizontalConstraints)
     }
 
     override var preferredStatusBarStyle: UIStatusBarStyle {

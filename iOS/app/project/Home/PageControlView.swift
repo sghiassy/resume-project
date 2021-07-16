@@ -7,7 +7,11 @@
 
 import UIKit
 
+
+
 class PageControlView: UIStackView {
+
+    var onTinderButtonPressed:(()->())? = nil
 
     init() {
         super.init(frame: .zero)
@@ -18,17 +22,20 @@ class PageControlView: UIStackView {
         let beersButton = UIButton()
         beersButton.setTitle("Beers", for: .normal)
         beersButton.addTarget(self, action: #selector(beersButtonTapped), for: .touchUpInside)
+        beersButton.titleLabel?.font = UIFont.systemFont(ofSize: 12)
 
         let tinderButton = UIButton()
         tinderButton.setTitle("Tinder", for: .normal)
         tinderButton.addTarget(self, action: #selector(tinderButtonTapped), for: .touchUpInside)
+        tinderButton.titleLabel?.font = UIFont.systemFont(ofSize: 12)
 
-        [beersButton, UIView(), tinderButton].forEach { [weak self] view in
+        [beersButton, tinderButton].forEach { [weak self] view in
             view.layer.borderColor = UIColor.white.cgColor
             view.layer.borderWidth = 0.5
-
             self?.addArrangedSubview(view)
         }
+
+        self.setContentHuggingPriority(.defaultHigh, for: .vertical)
     }
 
     @objc func beersButtonTapped() {
@@ -36,7 +43,7 @@ class PageControlView: UIStackView {
     }
 
     @objc func tinderButtonTapped() {
-        print("tinderButtonTapped")
+        onTinderButtonPressed?()
     }
 
     required init(coder: NSCoder) {
