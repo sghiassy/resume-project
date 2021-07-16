@@ -62,7 +62,9 @@ class BeerViewController:UIViewController,UICollectionViewDelegate,UICollectionV
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MyCell", for: indexPath) as! BeerCollectionViewCell
-        cell.provide(data[indexPath.row], backgroundColor: indexPath.row&1==1 ? .red : .blue)
+        let model = data[indexPath.row]
+        let backgroundColor:UIColor = indexPath.row.isOdd ? .red : .blue
+        cell.provide(model, backgroundColor: backgroundColor)
         return cell
     }
 
