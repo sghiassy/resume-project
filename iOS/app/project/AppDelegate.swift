@@ -11,20 +11,15 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var childAppDelegate: UIApplicationDelegate? = nil
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         let vc = HomeViewController()
         let nav = UINavigationController(rootViewController: vc)
         nav.isNavigationBarHidden = true
-        setupWindow(navigationController: nav)
-        return self.childAppDelegate?.application?(application, didFinishLaunchingWithOptions: launchOptions) ?? false
-    }
-
-    func setupWindow(navigationController:UINavigationController) {
         self.window = UIWindow(frame: UIScreen.main.bounds)
-        self.window?.rootViewController = navigationController
+        self.window?.rootViewController = nav
         self.window?.makeKeyAndVisible()
+        return true
     }
 
 }
