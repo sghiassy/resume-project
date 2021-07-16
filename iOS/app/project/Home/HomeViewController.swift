@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, UIScrollViewDelegate {
 
     let scrollView = UIScrollView()
 
@@ -25,13 +25,18 @@ class HomeViewController: UIViewController {
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.backgroundColor = .black
         scrollView.isPagingEnabled = true
-        scrollView.contentSize = CGSize(width: self.view.frame.size.width*2, height: self.view.frame.size.height-100)
+        scrollView.delegate = self
+//        scrollView.contentSize = CGSize(width: self.view.frame.size.width*2, height: self.view.frame.size.height-100)
         NSLayoutConstraint.activate([
             scrollView.widthAnchor.constraint(equalTo: self.view.widthAnchor),
             scrollView.heightAnchor.constraint(equalTo: self.view.heightAnchor),
             scrollView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
             scrollView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor)
         ])
+
+        let pageControlView = PageControlView()
+        self.view.addSubview(pageControlView)
+        pageControlView.translatesAutoresizingMaskIntoConstraints = false
 
         let vc1 = BeerViewController()
         vc1.view.translatesAutoresizingMaskIntoConstraints = false
@@ -45,8 +50,8 @@ class HomeViewController: UIViewController {
         addChild(vc2)
         vc2.didMove(toParent: self)
 
-        let views:[String:UIView] = ["view":view, "vc1":vc1.view, "vc2":vc2.view]
-        let verticalConstraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|[vc1(==view)]", options: [], metrics: nil, views: views)
+        let views:[String:UIView] = ["page":pageControlView, "view":view, "vc1":vc1.view, "vc2":vc2.view]
+        let verticalConstraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-[page][vc1(==view)]", options: [], metrics: nil, views: views)
         let horizontalConstraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|[vc1(==view)][vc2(==view)]|", options: [.alignAllTop, .alignAllBottom], metrics: nil, views: views)
         NSLayoutConstraint.activate(verticalConstraints + horizontalConstraints)
     }
