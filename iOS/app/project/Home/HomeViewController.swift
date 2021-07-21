@@ -62,4 +62,8 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
         return .lightContent
     }
 
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+
 }
