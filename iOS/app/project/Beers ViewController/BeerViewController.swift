@@ -14,9 +14,11 @@ class BeerViewController:UIViewController,UICollectionViewDelegate,UICollectionV
 
     init() {
         super.init(nibName: nil, bundle: nil)
+        self.view.backgroundColor = .purple
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: self.view.frame.size.width, height: 200)
-        collectionView = UICollectionView(frame: self.view.frame, collectionViewLayout:layout )
+        collectionView = UICollectionView(frame: .zero, collectionViewLayout:layout )
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.register(BeerCollectionViewCell.self, forCellWithReuseIdentifier: "MyCell")
         collectionView.delegate = self
         collectionView.dataSource = self
