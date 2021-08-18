@@ -9,8 +9,6 @@ import UIKit
 
 class HomeViewController: UIViewController, UIScrollViewDelegate {
 
-
-
     init() {
         super.init(nibName: nil, bundle: nil)
     }
@@ -20,6 +18,7 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
     }
 
     override func viewDidLoad() {
+        kdebug_signpost_start(5, 0, 0, 0, 0) // Measure Image creation time
         super.viewDidLoad()
         let scrollView = UIScrollView()
         view.addSubview(scrollView)
@@ -29,7 +28,7 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
         scrollView.delegate = self
         scrollView.showsHorizontalScrollIndicator = false
 
-        let contentView = UIView()
+        let contentView = UIView() // Using a blank content view is apple's recommendation for using AutoLayout with ScrollViews: https://developer.apple.com/library/archive/technotes/tn2154/_index.html
         contentView.translatesAutoresizingMaskIntoConstraints = false
         contentView.backgroundColor = .green
         scrollView.addSubview(contentView)
@@ -82,6 +81,7 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
 
         NSLayoutConstraint.activate(pageControlWidth + scrollViewWidth + topLevelVerticalConstraints + horizontalConstraints)
          */
+        kdebug_signpost_end(5, 0, 0, 0, 0) // Measure Image creation time
     }
 
     override var preferredStatusBarStyle: UIStatusBarStyle {

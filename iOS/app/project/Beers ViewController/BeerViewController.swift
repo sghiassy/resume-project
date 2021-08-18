@@ -13,6 +13,7 @@ class BeerViewController:UIViewController,UICollectionViewDelegate,UICollectionV
     var collectionView:UICollectionView!
 
     init() {
+        
         super.init(nibName: nil, bundle: nil)
         self.view.backgroundColor = .purple
         let layout = UICollectionViewFlowLayout()
